@@ -5,9 +5,9 @@ Stop judging me.
 *Inspiration by the lovely and talented [ThePrimeagen](https://github.com/ThePrimeagen).*
 
 ### roles
-common
-personal
-work
+- common
+- personal
+- work
 
 Run the common/personal roles with personal.yml and the common/work roles with work.yml.
 
