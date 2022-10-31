@@ -1,0 +1,22 @@
+---
+
+- include_tasks: git.yml
+  tags: git
+
+- name: non-vm stuff
+  block:
+
+    - include_tasks: brave.yml
+      tags: brave
+
+    - include_tasks: discord.yml
+      tags: discord
+
+    - include_tasks: spotify.yml
+      tags: spotify
+
+  when: (ansible_virtualization_role == "host") or (ansible_virtualization_role == "N/A")
+
+# end of non-vm block
+
+# EOF

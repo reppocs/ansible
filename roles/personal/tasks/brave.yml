@@ -1,0 +1,28 @@
+---
+
+- name: install required packages for brave
+  become: yes
+  apt:
+    name:
+      - curl
+      - apt-transport-https
+    state: latest
+    update_cache: yes
+
+- name: download brave's repo key
+  become: yes
+  get_url:
+    url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    dest: /usr/share/keyrings/brave-browser-archive-keyring.gpg
+
+- name: brave repo ppa setting
+  become: yes
+  shell: echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list
+
+- name: install brave package
+  become: yes
+  apt:
+    name: brave-browser
+    update_cache: yes
+
+# EOF

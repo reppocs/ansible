@@ -1,0 +1,5 @@
+---
+
+# git
+git_dir_personal: "{{ ansible_user_dir }}/git/personal"
+git_dir_public: "{{ ansible_user_dir }}/git/public"

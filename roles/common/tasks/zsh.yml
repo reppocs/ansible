@@ -1,0 +1,33 @@
+---
+
+- name: install zsh
+  become: yes
+  apt:
+    name: zsh
+    state: latest
+    update_cache: true
+
+- name: set zsh as shell
+  become: yes
+  user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/bin/zsh
+
+- name: oh-my-zsh
+  git:
+    repo: https://github.com/ohmyzsh/ohmyzsh.git
+    dest: "{{ ansible_user_dir }}/.oh-my-zsh"
+    depth: 1
+
+- name: .zshrc
+  copy:
+    src: "{{ git_dir_personal }}/dots/.zshrc"
+    dest: "{{ ansible_user_dir}}/.zshrc" 
+    backup: yes
+
+- name: zsh themes
+  copy:
+    src: "{{ git_dir_personal }}/dots/zsh-themes/"
+    dest: "{{ ansible_user_dir}}/.oh-my-zsh/custom/themes"
+
+# EOF

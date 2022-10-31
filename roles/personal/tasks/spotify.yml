@@ -1,0 +1,44 @@
+---
+
+- name: install spotify apt key
+  become: yes
+  apt_key:
+    url: https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg
+    state: present
+
+- name: populate the spotify sources file
+  become: yes
+  lineinfile:
+    path: /etc/apt/sources.list.d/spotify.list
+    line: deb http://repository.spotify.com stable non-free
+    create: yes
+
+- name: install spotify
+  become: yes
+  apt:
+    name: spotify-client
+    state: latest
+    update_cache: yes
+
+- name: spicetify install script
+  get_url:
+    url: https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh
+    dest: "{{ ansible_user_dir }}/Downloads/install.sh"
+    mode: 0755
+
+- name: run install script
+  command: "{{ ansible_user_dir }}/Downloads/install.sh"
+
+- name: /usr/share/spotify perms
+  become: yes
+  file:
+    path: /usr/share/spotify
+    mode: a+wr
+
+- name: /usr/share/spotify/Apps perms
+  become: yes
+  file:
+    path: /usr/share/spotify/Apps
+    mode: a+wr
+
+# EOF

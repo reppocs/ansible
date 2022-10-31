@@ -1,0 +1,58 @@
+---
+
+- name: make sure dots repo directory doesn't exist
+  file:
+    path: "{{ git_dir_personal }}/dots"
+    state: absent
+
+- name: clone dots repo
+  git:
+    repo: git@github.com:reppocs/dots
+    dest: "{{ git_dir_personal }}/dots"
+    update: yes
+    version: main
+
+- name: back up current .config directory
+  synchronize:
+    src: "{{ ansible_user_dir }}/.config"
+    dest: "{{ ansible_user_dir }}/.config.orig"
+
+- name: copy the dots/.config directory contents to ~/.config
+  synchronize:
+    src: "{{ ansible_user_dir }}/git/personal/dots/.config/"
+    dest: "{{ ansible_user_dir }}/.config"
+
+- name: make sure other directories are present
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ ansible_user_dir }}/.backgrounds"
+    - "{{ ansible_user_dir }}/.fonts"
+    - "{{ ansible_user_dir }}/.themes"
+
+- name: copy backgrounds
+  synchronize:
+    src: "{{ git_dir_personal }}/dots/.backgrounds/"
+    dest: "{{ ansible_user_dir }}/.backgrounds"
+
+- name: copy fonts
+  synchronize:
+    src: "{{ git_dir_personal }}/dots/.fonts/"
+    dest: "{{ ansible_user_dir }}/.fonts"
+
+- name: update font cache
+  command: fc-cache -fv
+
+- name: copy gtk themes
+  synchronize:
+    src: "{{ git_dir_personal }}/dots/.themes/"
+    dest: "{{ ansible_user_dir }}/.themes"
+
+- name: copy bash configs
+  copy:
+    src: "{{ git_dir_personal }}/dots/.bashrc"
+    dest: "{{ ansible_user_dir }}"
+    backup: yes
+
+# EOF

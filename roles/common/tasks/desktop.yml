@@ -1,0 +1,110 @@
+---
+
+- name: install desktop related packages
+  become: yes
+  block:
+
+    - name: common desktop packages
+      apt:
+        name:
+          - dunst
+          - feh
+          - kitty
+          - lxappearance
+          - picom
+          - rofi
+          - tty-clock
+        state: latest
+        update_cache: yes
+
+    - name: bspwm packages
+      apt:
+        name:
+          - bspwm
+          - polybar
+          - sxhkd
+        state: latest
+        update_cache: yes
+      when: window_manager == "bspwm"
+
+    - name: i3 packages
+      apt:
+        name:
+          - i3
+          - i3lock
+          - i3lock-fancy
+        state: latest
+        update_cache: yes
+      when: window_manager == "i3"
+
+    - name: alacritty
+      block:
+
+        - name: alacritty repo
+          apt_repository:
+            repo: 'ppa:aslatter/ppa'
+
+        - name: install alacritty
+          apt:
+            name: alacritty
+            state: latest
+            update_cache: yes
+
+      tags: alacritty
+
+    # end of alacritty block
+
+# end of desktop block
+
+- name: set the desktop theme
+  block:
+
+    - name: deploy alacritty config template
+      template:
+        src: config/alacritty/alacritty.yml.j2
+        dest: "{{ ansible_user_dir }}/.config/alacritty/alacritty.yml"
+
+    - name: deploy bspwm config template
+      template:
+        src: config/bspwm/bspwmrc.j2
+        dest: "{{ ansible_user_dir }}/.config/bspwm/bspwmrc"
+
+    - name: deploy i3 config template
+      template:
+        src: config/i3/config.j2
+        dest: "{{ ansible_user_dir }}/.config/i3/config"
+
+    - name: deploy kitty config template
+      template:
+        src: config/kitty/kitty.conf.j2
+        dest: "{{ ansible_user_dir }}/.config/kitty/kitty.conf"
+
+    - name: deploy neovim config template
+      template:
+        src: config/nvim/init.vim.j2
+        dest: "{{ ansible_user_dir }}/.config/nvim/init.vim"
+
+    - name: deploy polybar config template
+      template:
+        src: config/polybar/config.ini.j2
+        dest: "{{ ansible_user_dir }}/.config/polybar/config.ini"
+
+    - name: deploy polybar modules config template
+      template:
+        src: config/polybar/modules.ini.j2
+        dest: "{{ ansible_user_dir }}/.config/polybar/modules.ini"
+
+    - name: deploy rofi config template
+      template:
+        src: config/rofi/config.rasi.j2
+        dest: "{{ ansible_user_dir }}/.config/rofi/config.rasi"
+
+    - name: change dunst theme if given
+      copy:
+        src: "{{ ansible_user_dir }}/.config/dunst/dunstrc.{{ theme }}"
+        dest: "{{ ansible_user_dir }}/.config/dunst/dunstrc"
+        backup: yes
+
+# end of theme block
+
+# EOF

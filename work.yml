@@ -1,0 +1,27 @@
+---
+
+# run this one for work systems
+
+- name: apply common configuration
+  hosts: localhost
+  pre_tasks:
+    - name: upgrade packages
+      become: yes
+      apt:
+        name: "*"
+        state: latest
+        update_cache: true
+  roles:
+    - common
+  tags:
+    - install
+
+- name: apply work configuration
+  hosts: localhost
+  roles:
+    - work
+  tags:
+    - install
+
+# EOF
+

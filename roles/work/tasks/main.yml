@@ -1,0 +1,12 @@
+---
+
+- include_tasks: ssh.yml
+  tags: ssh
+
+- include_tasks: git.yml
+  tags: git
+
+- include_tasks: slack.yml
+  tags: slack
+
+# EOF

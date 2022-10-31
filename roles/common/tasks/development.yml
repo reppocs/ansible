@@ -1,0 +1,62 @@
+---
+
+- name: install packages
+  become: yes
+  apt:
+    name:
+      - build-essential
+      - neovim
+      - nodejs
+      - npm
+      - python3.10-full
+      - python3.10-venv
+      - python3-neovim
+      - python3-pip
+      - shellcheck
+    state: latest
+    update_cache: yes
+
+- name: create a symbolic link from python to python3.10
+  become: yes
+  file:
+    src: /usr/bin/python3.10
+    dest: /usr/local/bin/python
+    state: link
+
+- name: install n
+  become: yes
+  npm:
+    name: n
+    state: latest
+    global: yes
+
+- name: latest nodejs
+  become: yes
+  command: n latest
+
+- name: install neovim in node
+  become: yes
+  npm:
+    name: neovim
+    state: latest
+    global: yes
+
+- name: make sure autoload directory exists
+  file:
+    path: "{{ ansible_user_dir }}/.local/share/nvim/site/autoload"
+    state: directory
+
+- name: install vim-plug
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: "{{ ansible_user_dir }}/.local/share/nvim/site/autoload/plug.vim"
+
+- name: deploy neovim config
+  template:
+    src: config/nvim/init.vim.j2
+    dest: "{{ ansible_user_dir }}/.config/nvim/init.vim"
+
+- name: install neovim plugins
+  command: nvim --headless +PlugInstall +qall
+
+# EOF

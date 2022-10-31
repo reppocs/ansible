@@ -1,0 +1,27 @@
+---
+
+# run this one for personal (non-work) systems
+
+- name: apply common configuration
+  hosts: localhost
+  pre_tasks:
+    - name: upgrade packages
+      become: yes
+      apt:
+        name: "*"
+        state: latest
+        update_cache: true
+  roles:
+    - common
+  tags:
+    - install
+
+- name: apply personal configuration
+  hosts: localhost
+  roles:
+    - personal
+  tags:
+    - install
+
+# EOF
+

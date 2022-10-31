@@ -1,0 +1,24 @@
+---
+
+- name: install required packages for discord
+  become: yes
+  apt:
+    name:
+      - libc++1
+      - libfuse2
+      - libgconf-2-4
+    state: latest
+    update_cache: yes
+
+- name: install discord
+  become: yes
+  apt:
+    deb: https://discordapp.com/api/download?platform=linux&format=deb
+
+- name: BetterDiscord
+  get_url:
+    url: https://github.com/BetterDiscord/Installer/releases/download/v1.1.1/BetterDiscord-Linux.AppImage
+    dest: "{{ ansible_user_dir }}/Downloads/BetterDiscord-Linux.AppImage"
+    mode: 0755
+
+# EOF

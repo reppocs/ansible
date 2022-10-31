@@ -1,0 +1,17 @@
+---
+
+- name: install base packages
+  become: yes
+  apt:
+    name:
+      - software-properties-common
+      - build-essential
+      - git
+      - curl
+      - neovim
+      - shellcheck
+      - ranger
+    state: latest
+    update_cache: yes
+
+# EOF
