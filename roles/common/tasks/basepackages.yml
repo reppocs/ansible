@@ -9,6 +9,7 @@
       - git
       - curl
       - neovim
+      - nmap
       - shellcheck
       - ranger
     state: latest
