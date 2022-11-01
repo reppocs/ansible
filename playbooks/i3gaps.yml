@@ -26,3 +26,5 @@ vars:
       - i3lock-fancy
     state: latest
     update_cache: yes
+
+# EOF
