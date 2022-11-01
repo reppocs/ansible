@@ -4,6 +4,7 @@ vars:
   regolith_repo_key_url: https://regolith-desktop.org/regolith.key
 
 - name: add regolith apt repo key
+  become: yes
   get_url:
     url: "{{ regolith_repo_key_url }}"
     dest: /etc/apt/trusted.gpg.d/regolith.asc
@@ -11,11 +12,13 @@ vars:
     force: true
 
 - name: add regolith repo
+  become: yes
   apt_repository:
     repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/regolith.asc] https://regolith-desktop.org/release-ubuntu-{{ ansible_distribution_release }}-amd64 {{ ansible_distribution_release }} main"
     state: present
 
 - name: install i3-gaps related packages
+  become: yes
   apt:
     name:
       - i3-gaps
