@@ -2,10 +2,10 @@
 
 - hosts: localhost
 
-    vars:
-      regolith_repo_key_url: https://regolith-desktop.org/regolith.key
+  vars:
+    regolith_repo_key_url: https://regolith-desktop.org/regolith.key
 
-
+  tasks:
 
     - name: add regolith apt repo key
       become: yes
