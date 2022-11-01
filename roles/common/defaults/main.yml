@@ -11,3 +11,6 @@ git_dir_public: "{{ ansible_user_dir }}/git/public"
 # ssh
 source_key: "files/ssh/id_ed25519"
 dest_key: "{{ ansible_user_dir }}/.ssh/id_ed25519"
+
+# regolity repo key for i3-gaps install
+regolith_repo_key_url: https://regolith-desktop.org/regolith.key
