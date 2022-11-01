@@ -1,7 +1,7 @@
 ---
 
 # desktop
-window_manager: bspwm
+window_manager: i3
 theme: gruvbox
 
 # git
