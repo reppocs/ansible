@@ -5,12 +5,28 @@
 - name: apply common configuration
   hosts: localhost
   pre_tasks:
+
+    - name: fail if theme is not correct
+      fail:
+        msg: theme variable is not an option [dracula, gruvbox, nord, undefined]
+      when: >
+        ((theme != "dracula") and (theme != "gruvbox") and
+        (theme != "nord") and (theme is not defined)
+
+    - name: fail if window_manager is not correct
+      fail:
+        msg: window_manager variable is not an option [bspwm, i3, undefined]
+      when: >
+        ((window_manager != "i3") and (window_manager != "bspwm") and
+        (window_manager is not defined))
+
     - name: upgrade packages
       become: yes
       apt:
         name: "*"
         state: latest
         update_cache: true
+
   roles:
     - common
     - work
