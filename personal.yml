@@ -2,7 +2,7 @@
 
 # run this one for personal (non-work) systems
 
-- name: apply common configuration
+- name: apply common and personal configurations
   hosts: localhost
   pre_tasks:
     - name: upgrade packages
@@ -13,12 +13,6 @@
         update_cache: true
   roles:
     - common
-  tags:
-    - install
-
-- name: apply personal configuration
-  hosts: localhost
-  roles:
     - personal
   tags:
     - install
