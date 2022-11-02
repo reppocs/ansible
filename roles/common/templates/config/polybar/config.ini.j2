@@ -30,9 +30,9 @@ foreground = ${colors.foreground}
 #overline-size = 2
 #overline-color = ${color.ac}
 
-modules-left = {{ window_manager | default ("bspwm") }}
-modules-center = title
-modules-right = battery memory cpu date
+modules-left = {{ window_manager | default ("bspwm") }} title
+modules-center = date
+modules-right = battery memory cpu
 
 line-size = 3
 line-color = #f00
