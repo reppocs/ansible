@@ -6,19 +6,19 @@
   hosts: localhost
   pre_tasks:
 
-    - name: fail if theme is not correct
+    - name: fail if theme is not valid
       fail:
-        msg: theme variable is not an option [dracula, gruvbox, nord, undefined]
+        msg: theme variable value is not valid [dracula, gruvbox, nord, undefined]
       when: >
         ((theme != "dracula") and (theme != "gruvbox") and
-        (theme != "nord") and (theme is not defined)
+        (theme != "nord") and (theme is defined))
 
     - name: fail if window_manager is not correct
       fail:
-        msg: window_manager variable is not an option [bspwm, i3, undefined]
+        msg: window_manager variable value is not valid [bspwm, i3, undefined]
       when: >
         ((window_manager != "i3") and (window_manager != "bspwm") and
-        (window_manager is not defined))
+        (window_manager is defined))
 
     - name: upgrade packages
       become: yes
