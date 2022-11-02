@@ -13,12 +13,6 @@
         update_cache: true
   roles:
     - common
-  tags:
-    - install
-
-- name: apply work configuration
-  hosts: localhost
-  roles:
     - work
   tags:
     - install
