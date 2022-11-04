@@ -11,7 +11,7 @@
 
 - include_tasks: desktop.yml
   tags:
-    - alacritty
+    - changetheme
     - desktop
 
 - include_tasks: development.yml
