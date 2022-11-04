@@ -5,6 +5,5 @@ source_key: "files/ssh/id_rsa"
 dest_key: "{{ ansible_user_dir }}/.ssh/id_rsa"
 
 # git
-git_dir_personal: "{{ ansible_user_dir }}/git/personal"
-git_dir_public: "{{ ansible_user_dir }}/git/public"
+it_dir_public: "{{ ansible_user_dir }}/git/public"
 git_dir_work: "{{ ansible_user_dir }}/git/work"
