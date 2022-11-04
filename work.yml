@@ -30,8 +30,6 @@
   roles:
     - common
     - work
-  tags:
-    - install
 
 # EOF
 
