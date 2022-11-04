@@ -45,7 +45,7 @@
       - name: install i3-gaps related packages
         apt:
           name:
-            - i3-gaps
+            - i3
             - i3lock
             - i3lock-fancy
           state: latest
