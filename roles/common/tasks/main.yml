@@ -15,6 +15,7 @@
     - desktop
 
 - include_tasks: development.yml
+  tags: dev
 
 - include_tasks: zsh.yml
   tags: zsh
