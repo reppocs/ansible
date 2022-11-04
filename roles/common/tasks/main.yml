@@ -2,29 +2,21 @@
 # tasks file for common
 
 - include_tasks: basepackages.yml
-  tags: install
 
 - include_tasks: ssh.yml
-  tags:
-    - install
-    - ssh
+  tags: ssh
+
 - include_tasks: dots.yml
-  tags:
-    - dots
-    - install
+  tags: dots
 
 - include_tasks: desktop.yml
   tags:
     - alacritty
     - desktop
-    - install
 
 - include_tasks: development.yml
-  tags: install
 
 - include_tasks: zsh.yml
-  tags:
-    - install
-    - zsh
+  tags: zsh
 
 # EOF
