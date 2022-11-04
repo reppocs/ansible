@@ -5,20 +5,30 @@
 - name: apply common configuration
   hosts: localhost
   pre_tasks:
+
+    - name: fail if theme value is not valid
+      fail:
+        msg: theme variable value is not valid [dracula, gruvbox, nord, undefined]
+      when: >
+        ((theme != "dracula") and (theme != "gruvbox") and
+        (theme != "nord") and (theme is defined))
+
+    - name: fail if window_manager value is not valid
+      fail:
+        msg: window_manager variable value is not valid [bspwm, i3, undefined]
+      when: >
+        ((window_manager != "i3") and (window_manager != "bspwm") and
+        (window_manager is defined))
+
     - name: upgrade packages
       become: yes
       apt:
         name: "*"
         state: latest
         update_cache: true
+
   roles:
     - common
-  tags:
-    - install
-
-- name: apply work configuration
-  hosts: localhost
-  roles:
     - work
   tags:
     - install
