@@ -1,5 +1,10 @@
 ---
 
+- include_tasks: desktop.yml
+  tags:
+    - changetheme
+    - desktop
+
 - include_tasks: git.yml
   tags: git
 
