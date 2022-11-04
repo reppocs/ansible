@@ -29,20 +29,8 @@
 
   roles:
 
-    - role: common
-      tags:
-        - alacritty
-        - desktop
-        - dots
-        - ssh
-        - zsh
-
-    - role: personal
-      tags:
-        - brave
-        - discord
-        - git
-        - spotify
+    - common
+    - personal
 
 # EOF
 
