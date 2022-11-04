@@ -37,7 +37,6 @@
       copy:
         src: "files/ssh/known_hosts"
         dest: "{{ ansible_user_dir }}/.ssh"
-        backup: yes
 
   tags: ssh
 
