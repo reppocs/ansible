@@ -58,7 +58,7 @@
         dest: "{{ ansible_user_dir }}"
         backup: yes
 
-  tags: dev
+  tags: dots
 
 # end of dots block
 
