@@ -10,8 +10,9 @@
       - curl
       - neovim
       - nmap
-      - shellcheck
       - ranger
+      - shellcheck
+      - tree
     state: latest
     update_cache: yes
 
