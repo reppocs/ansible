@@ -9,13 +9,18 @@
         mode: 0700
         state: directory
 
-    - name: remove personal keys
+    - name: remove existing keys
       file:
         path: "{{ item }}"
         state: absent
       with_fileglob: "{{ ansible_user_dir }}/.ssh/id*"
 
-    - name: remove known hosts
+    - name: remove existing config
+      file:
+        path: "{{ ansible_user_dir }}/.ssh/config"
+        state: absent
+
+    - name: remove existing known hosts
       file:
         path: "{{ ansible_user_dir }}/.ssh/known_hosts"
         state: absent
