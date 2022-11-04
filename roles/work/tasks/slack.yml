@@ -4,8 +4,6 @@
   become: yes
   apt:
     deb: https://downloads.slack-edge.com/releases/linux/4.28.182/prod/x64/slack-desktop-4.28.182-amd64.deb
-  tags:
-    - slack
-    - work
+  tags: slack
   
 # EOF
