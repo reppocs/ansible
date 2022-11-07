@@ -16,6 +16,7 @@
               - lxappearance
               - picom
               - rofi
+              - stalonetray
               - tty-clock
             state: latest
             update_cache: yes
