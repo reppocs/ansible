@@ -10,6 +10,7 @@
         - name: common desktop packages
           apt:
             name:
+              - bpytop
               - dunst
               - feh
               - kitty
