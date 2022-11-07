@@ -4,10 +4,6 @@
 window_manager: i3
 theme: gruvbox
 
-# git
-git_dir_personal: "{{ ansible_user_dir }}/git/personal"
-git_dir_public: "{{ ansible_user_dir }}/git/public"
-
 # ssh
 source_key: "files/ssh/id_ed25519"
 dest_key: "{{ ansible_user_dir }}/.ssh/id_ed25519"
