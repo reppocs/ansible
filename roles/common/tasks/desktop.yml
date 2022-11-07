@@ -14,9 +14,9 @@
               - feh
               - kitty
               - lxappearance
+              - neofetch
               - picom
               - rofi
-              - stalonetray
               - tty-clock
             state: latest
             update_cache: yes
