@@ -2,6 +2,7 @@
 
 # desktop
 theme: gruvbox
+window_manager: bspwm
 
 # git
 git_dir_personal: "{{ ansible_user_dir }}/git/personal"
