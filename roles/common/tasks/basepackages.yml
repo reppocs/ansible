@@ -12,6 +12,7 @@
       - nmap
       - ranger
       - shellcheck
+      - stalonetray
       - tree
     state: latest
     update_cache: yes
