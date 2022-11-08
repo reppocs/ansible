@@ -1,7 +1,7 @@
 ---
 
 # desktop
-window_manager: i3
+window_manager: bspwm
 theme: gruvbox
 
 # ssh
