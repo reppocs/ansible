@@ -3,6 +3,15 @@
 
 - include_tasks: basepackages.yml
 
+- name: deploy logind.conf to keep from suspending on lid close
+  template:
+    src: etc/systemd/logind.conf.j2
+    dest: /etc/systemd/logind.conf
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+
 - include_tasks: ssh.yml
   tags: ssh
 
