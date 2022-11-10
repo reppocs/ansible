@@ -1,0 +1,27 @@
+---
+
+- name: install and configure tailscale
+  block:
+
+    - name: add signing key
+      get_url:
+        url: https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg
+        dest: /usr/share/keyrings/tailscale-archive-keyring.gpg
+
+    - name: add repo
+      get_url:
+        url: https://pkgs.tailscale.com/stable/ubuntu/jammy.tailscale-keyring.list
+        dest: /etc/apt/sources.list.d/tailscale.list 
+
+    - name: install tailscale
+      apt:
+        name: tailscale
+        state: latest
+
+    - name: bring tailscale up
+      command: tailscale up
+
+  tags:
+    - tailscale
+
+# EOF
