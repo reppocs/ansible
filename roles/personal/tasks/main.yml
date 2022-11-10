@@ -20,6 +20,9 @@
     - include_tasks: spotify.yml
       tags: spotify
 
+    - include_tasks: tailscale.yml
+      tags: tailscale
+
   when: (ansible_virtualization_role == "host") or (ansible_virtualization_role == "N/A")
 
 # end of non-vm block
