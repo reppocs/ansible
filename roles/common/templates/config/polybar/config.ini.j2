@@ -32,9 +32,9 @@ cursor-scroll = ns-resize
 
 enable-ipc = true
 
-modules-left = logo {{ window_manager | default ("bspwm") }} title
+modules-left = {{ window_manager | default ("bspwm") }} title
 modules-center = date
-modules-right = battery memory cpu
+modules-right = audio battery memory cpu
 
 tray-position = right
 tray-padding = 2
