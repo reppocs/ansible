@@ -24,11 +24,13 @@ bspc config split_ratio		0.50
 # app rules
 ####################
 
-bspc rule -a firefox desktop='^2' state=monocle
-bspc rule -a Slack desktop='^3' state=monocle
-bspc rule -a code desktop='^4' state=floating
-bspc rule -a "Virtualbox Manager" desktop='^5' state=floating
-bspc rule -a Gimp desktop='^9' state=floating
+bspc rule -a Google-chrome desktop='^2' state=monocle
+bspc rule -a Slack desktop='^3' state=floating
+bspc rule -a discord desktop='^3' state=floating
+bspc rule -a Spotify desktop='^4' state=floating
+bspc rule -a firefox desktop='^5' state=monocle
+bspc rule -a "Virtualbox Manager" desktop='^6' state=floating
+bspc rule -a code desktop='^7' state=floating
 
 bspc config borderless_monocle  true
 bspc config gapless_monocle     true
