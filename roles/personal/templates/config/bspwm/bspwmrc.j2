@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-pgrep -x sxhkd > /dev/null || sxhkd &
+# disable internal monitor if external monitor is connected
+source $HOME/.config/bspwm/extmon
 
 # include the theme file
 source $HOME/.config/bspwm/themes/{{ theme | default("gruvbox") }}.bspwm
@@ -9,7 +10,7 @@ source $HOME/.config/bspwm/themes/{{ theme | default("gruvbox") }}.bspwm
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
 # fix cursor
-xsetroot -cursor_name left_ptr                          # fix cursor
+xsetroot -cursor_name left_ptr
 
 # window stuff
 bspc config border_width	1
@@ -45,4 +46,5 @@ bspc config pointer_action1     move
 bspc config pointer_action2     resize_side
 bspc config pointer_action2     resize_corner
 
+# start things
 source $HOME/.config/bspwm/autostart
