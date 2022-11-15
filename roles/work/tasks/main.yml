@@ -9,4 +9,7 @@
 - include_tasks: slack.yml
   tags: slack
 
+- include_tasks: chrome.yml
+  tags: chrome
+
 # EOF
