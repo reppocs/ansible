@@ -217,20 +217,20 @@ bindsym $mod+p exec --no-startup-id $HOME/.config/i3/scripts/rofi-power.sh
 # app configs
 ##################
 
-# firefox
-for_window [class="firefox"] move to workspace $ws2
+# chrome
+for_window [class="Google-chrome" move to workspace $ws2
 
-# slack
-for_window [class="Slack"] move to workspace $ws3
+# firefox
+for_window [class="firefox"] move to workspace $ws4
 
 # Virtual Studio Code
-for_window [class="code"] move to workspace $ws4
+for_window [class="code"] move to workspace $ws5
+
+# slack
+for_window [class="Slack"] move to workspace $ws6
 
 # virtualbox
-for_window [class="Virtualbox Manager"] move to workspace $ws5
-
-# gimp
-for_window [class="Gimp"] move to workspace $ws9
+for_window [class="Virtualbox Manager"] move to workspace $ws8
 
 ##################
 # This is all the theme specific stuff, including:
