@@ -1,5 +1,8 @@
 ---
 
+- include_tasks: desktop.yml
+  tags: desktop
+
 - include_tasks: ssh.yml
   tags: ssh
 
