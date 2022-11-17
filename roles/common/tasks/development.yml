@@ -5,7 +5,6 @@
   apt:
     name:
       - build-essential
-      - neovim
       - nodejs
       - npm
       - python3.10-full
@@ -22,6 +21,31 @@
     src: /usr/bin/python3.10
     dest: /usr/local/bin/python
     state: link
+
+- name: compile and install neovim
+  block:
+
+    - name: clone neovim repo
+      git:
+        repo: https://github.com/neovim/neovim.git
+        dest: "{{ git_dir_public }}"
+
+    - name: neovim make
+      make:
+        chdir: "{{ ansible_user_dir }}/git/public/neovim"
+        target: CMAKE_BUILD_TYPE=RelWithDebInfo
+        params:
+          NUM_THREADS: 10
+
+    - name: neovim install
+      become: yes
+      make:
+        chdir: "{{ ansible_user_dir }}/git/public/neovim"
+        target: install
+
+  tags: neovim
+
+# end of neovim build block
 
 - name: install n
   become: yes
