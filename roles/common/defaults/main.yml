@@ -4,6 +4,9 @@
 window_manager: bspwm
 theme: gruvbox
 
+# public git dir
+git_dir_public: "{{ ansible_user_dir }}/git/public"
+
 # ssh
 source_key: "files/ssh/id_ed25519"
 dest_key: "{{ ansible_user_dir }}/.ssh/id_ed25519"
