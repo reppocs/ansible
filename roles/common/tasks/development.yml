@@ -25,6 +25,24 @@
 - name: compile and install neovim
   block:
 
+    - name: install neovim build prerequisites
+      become:
+      apt:
+        name:
+          - ninja-build
+          - gettext
+          - libtool
+          - libtool-bin
+          - autoconf
+          - cmake
+          - g++
+          - pkg-config
+          - unzip
+          - curl
+          - doxygen
+        state: latest
+        update_cache: yes
+
     - name: clone neovim repo
       git:
         repo: https://github.com/neovim/neovim.git
