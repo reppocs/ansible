@@ -1,7 +1,9 @@
 ---
 
 - include_tasks: desktop.yml
-  tags: desktop
+  tags:
+    - changetheme
+    - desktop
 
 - include_tasks: ssh.yml
   tags: ssh
