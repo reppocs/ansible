@@ -26,7 +26,7 @@
   block:
 
     - name: install neovim build prerequisites
-      become:
+      become: yes
       apt:
         name:
           - ninja-build
@@ -42,6 +42,11 @@
           - doxygen
         state: latest
         update_cache: yes
+
+    - name: delete neovim repo dir
+      file:
+        path: "{{ git_dir_public }}/neovim"
+        state: absent
 
     - name: clone neovim repo
       git:
