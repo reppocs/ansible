@@ -8,7 +8,6 @@
       - build-essential
       - git
       - curl
-      - neovim
       - nmap
       - ranger
       - shellcheck
