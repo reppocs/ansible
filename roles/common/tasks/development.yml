@@ -28,11 +28,11 @@
     - name: clone neovim repo
       git:
         repo: https://github.com/neovim/neovim.git
-        dest: "{{ git_dir_public }}"
+        dest: "{{ git_dir_public }}/neovim"
 
     - name: neovim make
       make:
-        chdir: "{{ ansible_user_dir }}/git/public/neovim"
+        chdir: "{{ git_dir_public }}/neovim"
         target: CMAKE_BUILD_TYPE=RelWithDebInfo
         params:
           NUM_THREADS: 10
@@ -40,7 +40,7 @@
     - name: neovim install
       become: yes
       make:
-        chdir: "{{ ansible_user_dir }}/git/public/neovim"
+        chdir: "{{ git_dir_public }}/neovim"
         target: install
 
   tags: neovim
