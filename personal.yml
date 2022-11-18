@@ -2,10 +2,10 @@
 
 # run this one for personal (non-work) systems
 
-theme: dracula
-
 - name: apply common and personal configurations
   hosts: localhost
+  vars:
+    theme: dracula
   pre_tasks:
 
     - name: fail if theme is not valid
