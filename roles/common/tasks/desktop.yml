@@ -70,10 +70,15 @@
             src: config/kitty/kitty.conf.j2
             dest: "{{ ansible_user_dir }}/.config/kitty/kitty.conf"
 
-        - name: deploy neovim config template
+        - name: deploy neovim plugins config
           template:
-            src: config/nvim/init.vim.j2
-            dest: "{{ ansible_user_dir }}/.config/nvim/init.vim"
+            src: config/nvim/lua/plugs.lua.j2
+            dest: "{{ ansible_user_dir }}/.config/nvim/lua/plugs.lua"
+
+        - name: deploy neovin colors config
+          template:
+            src: config/nvim/after/plugin/colors.lua.j2
+            dest: "{{ ansible_user_dir }}/.config/nvim/after/plugin/colors.lua"
 
         - name: deploy polybar config template
           template:
