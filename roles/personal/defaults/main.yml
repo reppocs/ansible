@@ -1,7 +1,7 @@
 ---
 
 # desktop
-theme: gruvbox
+theme: dracula
 window_manager: i3
 
 # git
