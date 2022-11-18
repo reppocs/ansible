@@ -2,6 +2,8 @@
 
 # run this one for personal (non-work) systems
 
+theme: dracula
+
 - name: apply common and personal configurations
   hosts: localhost
   pre_tasks:
