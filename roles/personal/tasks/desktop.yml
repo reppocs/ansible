@@ -1,5 +1,15 @@
 ---
 
+- name: install personal desktop packages
+  become: yes
+  apt:
+    name:
+      - cava
+  state: latest
+  update_cache: yes
+  tags:
+    - desktop
+
 - name: deploy bspwm config template
   template:
     src: config/bspwm/bspwmrc.j2
