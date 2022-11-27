@@ -5,8 +5,8 @@
   apt:
     name:
       - cava
-  state: latest
-  update_cache: yes
+    state: latest
+    update_cache: yes
   tags:
     - desktop
 
