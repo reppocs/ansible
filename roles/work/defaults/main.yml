@@ -5,8 +5,8 @@ theme: gruvbox
 window_manager: i3
 
 # ssh
-source_key: "files/ssh/id_rsa"
-dest_key: "{{ ansible_user_dir }}/.ssh/id_rsa"
+source_key: "files/ssh/id_ed25519"
+dest_key: "{{ ansible_user_dir }}/.ssh/id_ed25519"
 
 # git
 git_dir_personal: "{{ ansible_user_dir }}/git/personal"
