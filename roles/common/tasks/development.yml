@@ -1,6 +1,6 @@
 ---
 
-- name: install packages
+- name: install base development packages
   become: yes
   apt:
     name:
@@ -12,6 +12,7 @@
       - python3-neovim
       - python3-pip
       - shellcheck
+      - software-properties-common
     state: latest
     update_cache: yes
 
@@ -22,53 +23,23 @@
     dest: /usr/local/bin/python
     state: link
 
-- name: compile and install neovim
+- name: install latest stable neovim
+  become: yes
   block:
 
-    - name: install neovim build prerequisites
-      become: yes
+    - name: add neovim ppa repo
+      apt_repository:
+        repo: ppa:neovim-ppa/stable
+
+    - name: install neovim
       apt:
-        name:
-          - ninja-build
-          - gettext
-          - libtool
-          - libtool-bin
-          - autoconf
-          - cmake
-          - g++
-          - pkg-config
-          - unzip
-          - curl
-          - doxygen
+        name: neovim
         state: latest
         update_cache: yes
 
-    - name: delete neovim repo dir
-      file:
-        path: "{{ git_dir_public }}/neovim"
-        state: absent
-
-    - name: clone neovim repo
-      git:
-        repo: https://github.com/neovim/neovim.git
-        dest: "{{ git_dir_public }}/neovim"
-
-    - name: neovim make
-      make:
-        chdir: "{{ git_dir_public }}/neovim"
-        target: CMAKE_BUILD_TYPE=RelWithDebInfo
-        params:
-          NUM_THREADS: 10
-
-    - name: neovim install
-      become: yes
-      make:
-        chdir: "{{ git_dir_public }}/neovim"
-        target: install
-
   tags: neovim
 
-# end of neovim build block
+# end of neovim install block
 
 - name: install n
   become: yes
