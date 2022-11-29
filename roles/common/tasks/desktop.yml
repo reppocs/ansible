@@ -82,6 +82,11 @@
     - name: set the desktop theme
       block:
 
+        - name: deploy acritty config template
+          template:
+            src: config/alacritty/alacritty.conf.j2
+            dest: "{{ ansible_user_dir }}/.config/alacritty/alacritty.conf"
+
         - name: deploy kitty config template
           template:
             src: config/kitty/kitty.conf.j2
