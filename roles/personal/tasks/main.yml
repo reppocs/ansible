@@ -11,9 +11,6 @@
 - name: non-vm stuff
   block:
 
-    - include_tasks: brave.yml
-      tags: brave
-
     - include_tasks: discord.yml
       tags: discord
 
