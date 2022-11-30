@@ -15,18 +15,21 @@ Run the common/personal roles with personal.yml and the common/work roles with w
 __theme__ - sets the desktop theme
 
 values:
-- [dracula](https://draculatheme.com/)
-- [gruvbox](https://github.com/morhetz/gruvbox) (default)
+- [dracula](https://draculatheme.com/) (default for personal)
+- [gruvbox](https://github.com/morhetz/gruvbox) (default for work)
 - [nord](https://www.nordtheme.com/)
 
 __window_manager__ - sets the....you know
 
 values:
-- bspwm (default)
-- i3
+- bspwm
+- i3 (default)
 
-### example run
-`ansible-playbook -t install -e "theme=nord,window_manager=i3" personal.yml`
+### example install
+`ansible-playbook -e "theme=nord,window_manager=i3" personal.yml`
+
+### change theme
+`ansible-playbook -t changetheme -e "theme=nord" personal.yml`
 
 ### notes
 
