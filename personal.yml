@@ -2,25 +2,22 @@
 
 # run this one for personal (non-work) systems
 
-- name: apply common and personal configurations
-  hosts: localhost
+- hosts: localhost
+
   vars:
     theme: dracula
+
   pre_tasks:
 
     - name: fail if theme is not valid
       fail:
         msg: theme variable value is not valid [dracula, gruvbox, nord, undefined]
-      when: >
-        ((theme != "dracula") and (theme != "gruvbox") and
-        (theme != "nord") and (theme is defined))
+      when: (theme is defined) and (theme not in valid_themes)
 
     - name: fail if window_manager is not correct
       fail:
         msg: window_manager variable value is not valid [bspwm, i3, undefined]
-      when: >
-        ((window_manager != "i3") and (window_manager != "bspwm") and
-        (window_manager is defined))
+      when: (window_manager is defined) and (window_manager not in valid_window_managers)
 
     - name: upgrade packages
       become: yes
