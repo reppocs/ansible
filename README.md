@@ -13,7 +13,7 @@ Run the common/personal roles with personal.yml and the common/work roles with w
 
 ### tags
 
-### common
+#### common
 - changetheme
 - desktop
 - dev
