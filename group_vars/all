@@ -1,6 +1,0 @@
-vars:
-
-  valid_themes:
-    - dracula
-    - gruvbox
-    - nord
