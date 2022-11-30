@@ -11,6 +11,26 @@ Stop judging me.
 
 Run the common/personal roles with personal.yml and the common/work roles with work.yml.
 
+### tags
+
+### common
+- changetheme
+- desktop
+- dev
+- dots
+- git
+- ssh
+- zsh
+
+#### personal
+- brave
+- discord
+- spotify
+
+#### work
+- chrome
+- slack
+
 ### variables
 __theme__ - sets the desktop theme
 
