@@ -4,14 +4,14 @@ Stop judging me.
 
 *Inspiration by the lovely and talented [ThePrimeagen](https://github.com/ThePrimeagen).*
 
-### roles
+## roles
 - common
 - personal
 - work
 
 Run the common/personal roles with personal.yml and the common/work roles with work.yml.
 
-### tags
+## tags
 
 #### common
 - changetheme
@@ -31,7 +31,7 @@ Run the common/personal roles with personal.yml and the common/work roles with w
 - chrome
 - slack
 
-### variables
+## variables
 __theme__ - sets the desktop theme
 
 values:
@@ -45,13 +45,18 @@ values:
 - bspwm
 - i3 (default)
 
-### example install
-`ansible-playbook -e "theme=nord,window_manager=i3" personal.yml`
+## examples
 
-### change theme
+#### install with the default window manager and theme
+`ansible-playbook -K --ask-vault-pass personal.yml`
+
+#### change theme
 `ansible-playbook -t changetheme -e "theme=nord" personal.yml`
 
-### notes
+#### reinstall / upgrade dev tools
+`ansible-playbook -K -t dev personal.yml`
+
+## notes
 
 Run the init.sh script to set up your environment beforehand.
 
