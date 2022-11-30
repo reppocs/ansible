@@ -84,8 +84,8 @@
 
         - name: deploy acritty config template
           template:
-            src: config/alacritty/alacritty.conf.j2
-            dest: "{{ ansible_user_dir }}/.config/alacritty/alacritty.conf"
+            src: config/alacritty/alacritty.yml.j2
+            dest: "{{ ansible_user_dir }}/.config/alacritty/alacritty.yml"
 
         - name: deploy kitty config template
           template:
