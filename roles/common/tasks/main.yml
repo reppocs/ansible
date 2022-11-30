@@ -20,8 +20,4 @@
 - include_tasks: zsh.yml
   tags: zsh
 
-- include_tasks: brave.yml
-  when: (ansible_virtualization_role == "host") or (ansible_virtualization_role == "N/A")
-  tags: brave
-
 # EOF
