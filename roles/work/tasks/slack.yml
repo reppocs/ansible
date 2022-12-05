@@ -3,7 +3,7 @@
 - name: install slack from deb file
   become: yes
   apt:
-    deb: https://downloads.slack-edge.com/releases/linux/4.28.182/prod/x64/slack-desktop-4.28.182-amd64.deb
+    deb: https://downloads.slack-edge.com/releases/linux/4.28.182/prod/x64/slack-desktop-4.29.149-amd64.deb
   tags: slack
   
 # EOF
