@@ -17,6 +17,7 @@
               - neofetch
               - nitrogen
               - picom
+              - polybar
               - rofi
               - tty-clock
             state: latest
@@ -43,7 +44,6 @@
           apt:
             name:
               - bspwm
-              - polybar
               - sxhkd
             state: latest
             update_cache: yes
