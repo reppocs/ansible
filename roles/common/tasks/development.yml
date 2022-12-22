@@ -5,8 +5,6 @@
   apt:
     name:
       - build-essential
-      - nodejs
-      - npm
       - python3.10-full
       - python3.10-venv
       - python3-neovim
@@ -40,29 +38,5 @@
   tags: neovim
 
 # end of neovim install block
-
-- name: install n
-  become: yes
-  npm:
-    name: n
-    state: latest
-    global: yes
-
-- name: latest nodejs
-  become: yes
-  command: n latest
-
-- name: install neovim in node
-  become: yes
-  npm:
-    name: neovim
-    state: latest
-    global: yes
-
-- name: clone packer repo
-  git:
-    repo: "https://github.com/wbthomason/packer.nvim"
-    dest: "{{ ansible_user_dir }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-    depth: 1
 
 # EOF
