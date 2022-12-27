@@ -13,6 +13,7 @@
   tags:
     - changetheme
     - desktop
+    - dev
 
 - include_tasks: development.yml
   tags: dev
