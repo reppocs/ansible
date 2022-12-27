@@ -92,6 +92,12 @@
             src: config/kitty/kitty.conf.j2
             dest: "{{ ansible_user_dir }}/.config/kitty/kitty.conf"
 
+        - name: deploy nvin config template
+          template:
+            src: config/nvim/init.lua.j2
+            dest: "{{ ansible_user_dir }}/.config/nvim/init.lua"
+          tags: dev
+
         - name: deploy polybar config template
           template:
             src: config/polybar/config.ini.j2
