@@ -12,3 +12,6 @@ dest_key: "{{ ansible_user_dir }}/.ssh/id_ed25519"
 git_dir_personal: "{{ ansible_user_dir }}/git/personal"
 git_dir_public: "{{ ansible_user_dir }}/git/public"
 git_dir_work: "{{ ansible_user_dir }}/git/work"
+
+# slack deb url
+slack_deb_url: "https://downloads.slack-edge.com/releases/linux/4.29.149/prod/x64/slack-desktop-4.29.149-amd64.deb"
