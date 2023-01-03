@@ -2,8 +2,11 @@
 
 # run this one for work systems
 
-- name: apply common configuration
-  hosts: localhost
+ - hosts: localhost
+
+  vars:
+    theme: gruvbox
+
   pre_tasks:
 
     - name: fail if theme value is not valid
