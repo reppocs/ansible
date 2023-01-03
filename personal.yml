@@ -27,7 +27,6 @@
         update_cache: true
 
   roles:
-
     - common
     - personal
 
