@@ -1,0 +1,16 @@
+---
+
+- name: install libpango-1.0-0
+  become: yes
+  apt:
+    name: libpango-1.0-0
+    state: latest
+    update_cache: yes
+
+- name: install dropbox from deb file
+  become: yes
+  apt:
+    deb: "{{ dropbox_deb_url }}"
+  tags: slack
+  
+# EOF
