@@ -21,4 +21,7 @@
 - include_tasks: zsh.yml
   tags: zsh
 
+- include_tasks: dropbox.yml
+  tags: dropbox
+
 # EOF
