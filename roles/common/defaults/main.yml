@@ -1,7 +1,6 @@
 ---
 
 # desktop
-window_manager: bspwm
 theme: gruvbox
 
 # public git dir
