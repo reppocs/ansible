@@ -16,13 +16,6 @@
         ((theme != "dracula") and (theme != "gruvbox") and
         (theme != "nord") and (theme is defined))
 
-    - name: fail if window_manager value is not valid
-      fail:
-        msg: window_manager variable value is not valid [bspwm, i3, undefined]
-      when: >
-        ((window_manager != "i3") and (window_manager != "bspwm") and
-        (window_manager is defined))
-
     - name: upgrade packages
       become: yes
       apt:

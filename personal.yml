@@ -14,11 +14,6 @@
         msg: theme variable value is not valid [dracula, gruvbox, nord, undefined]
       when: (theme is defined) and (theme not in valid_themes)
 
-    - name: fail if window_manager is not correct
-      fail:
-        msg: window_manager variable value is not valid [bspwm, i3, undefined]
-      when: (window_manager is defined) and (window_manager not in valid_window_managers)
-
     - name: upgrade packages
       become: yes
       apt:
