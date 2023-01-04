@@ -1,7 +1,3 @@
-valid_window_managers:
-  - bspwm
-  - i3
-
 valid_themes:
   - dracula
   - gruvbox
