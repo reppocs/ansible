@@ -2,7 +2,6 @@
 
 # desktop
 theme: gruvbox
-window_manager: bspwm
 
 # ssh
 source_key: "files/ssh/id_ed25519"
