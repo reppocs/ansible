@@ -17,7 +17,6 @@
               - neofetch
               - nitrogen
               - picom
-              - polybar
               - rofi
               - tty-clock
             state: latest
@@ -39,15 +38,6 @@
           tags: alacritty
 
         # end of alacritty block
-
-        - name: bspwm packages
-          apt:
-            name:
-              - bspwm
-              - sxhkd
-            state: latest
-            update_cache: yes
-          when: window_manager == "bspwm"
 
         - name: install i3
           block:
@@ -73,8 +63,6 @@
                 state: latest
                 update_cache: yes
 
-          when: window_manager == "i3"
-
         # end of i3 block
 
     # end of package install block
@@ -92,21 +80,11 @@
             src: config/kitty/kitty.conf.j2
             dest: "{{ ansible_user_dir }}/.config/kitty/kitty.conf"
 
-        - name: deploy nvin config template
+        - name: deploy nvim config template
           template:
             src: config/nvim/init.lua.j2
             dest: "{{ ansible_user_dir }}/.config/nvim/init.lua"
           tags: dev
-
-        - name: deploy polybar config template
-          template:
-            src: config/polybar/config.ini.j2
-            dest: "{{ ansible_user_dir }}/.config/polybar/config.ini"
-
-        - name: deploy polybar modules config template
-          template:
-            src: config/polybar/modules.ini.j2
-            dest: "{{ ansible_user_dir }}/.config/polybar/modules.ini"
 
         - name: deploy rofi config template
           template:
